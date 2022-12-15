@@ -2,6 +2,11 @@
 name = "bg"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "builder + generics"
+homepage = "https://github.com/frender-rs/bg"
+documentation = "https://docs.rs/bg"
+repository = "https://github.com/frender-rs/bg"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
