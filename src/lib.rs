@@ -1,14 +1,20 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+mod macros;
+pub use macros::*;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+mod build;
+mod empty;
+mod maybe;
+mod maybe_borrow;
+mod specified;
+mod types;
+mod unspecified;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use build::*;
+pub use empty::*;
+pub use maybe::*;
+pub use maybe_borrow::*;
+pub use specified::*;
+pub use types::*;
+pub use unspecified::*;
+
+pub mod __private;
