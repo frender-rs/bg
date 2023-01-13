@@ -486,7 +486,7 @@ macro_rules! __impl_props_field_declaration_normalize {
     };
     // field[impl Trait]
     //      will be normalized to:
-    // field[impl Trait]: UnspecifiedField<tag::field> = UnspecifiedField
+    // field[impl Trait]: Unspecified<tag::field> = Unspecified
     ( [$($macro_path:tt)+] $common_data:tt [
         $(#[$($fn_attr:tt)*])*
         $field_name:ident
@@ -498,7 +498,7 @@ macro_rules! __impl_props_field_declaration_normalize {
                 $(#[$($fn_attr)*])*
                 $field_name
 
-                [ impl $($field_bound)* ]: $crate::UnspecifiedField<field_tag::$field_name> = $crate::UnspecifiedField
+                [ impl $($field_bound)* ]: $crate::Unspecified<field_tag::$field_name> = $crate::Unspecified
             ]
         }
     };
@@ -580,7 +580,7 @@ macro_rules! __impl_props_types_field_initial_ty_iter {
         $($full_prefix)*
         $(
             $( $field_name = $crate::expand_a_or_b![ [$($initial_ty_maybe)?] [$crate::Unspecified<$($field_modifier_maybe)*>] ], )?
-            $( $field_name = $crate::expand_a_or_b![ [$($initial_ty_impl)? ] [$crate::UnspecifiedField<super::field_tag::$field_name>]], )?
+            $( $field_name = $crate::expand_a_or_b![ [$($initial_ty_impl)? ] [$crate::Unspecified<super::field_tag::$field_name>]], )?
             $( $field_name = $crate::expand_a_or_b![ [$($initial_ty_bm  )? ] [$crate::Unspecified<$($field_modifier_bm   )*>] ], )?
             $( $field_name = $crate::expand_a_or_b![ [$($initial_ty_ih  )? ] [$($field_modifier_ih)* :: DataInitial] ], )?
             $( $field_name = $crate::Unspecified<$generic_field_builder_output>, )?
